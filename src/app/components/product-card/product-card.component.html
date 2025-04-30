@@ -1,0 +1,9 @@
+<div>
+    <img class="bg-[#f2f2f2] rounded-2xl mb-[20px] mx-auto" [src]='product.thumbnail' alt="" loading="lazy">
+    <p class="mb-[20px] text-center font-bold uppercase">{{ product.title }} </p>
+    <p class="overflow-hidden text-ellipsis line-clamp-3 font-[300] text-[16px] italic text-center mb-[20px]">{{ product.description }}</p>
+</div>
+<div class="flex flex-row justify-around items-end">
+    <a routerLink="{{ '/product/' + product.id }}" class="underline underline-offset-[5px] decoration-from-font text-[16px] font-[300]">more</a>
+    <button class="cursor-pointer underline underline-offset-[5px] decoration-from-font text-[16px] font-[300]" (click)="addBasket(product)">add basket</button>
+</div>

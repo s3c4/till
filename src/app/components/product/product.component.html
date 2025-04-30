@@ -1,0 +1,13 @@
+<section class="container mx-auto px-4 md:px-16">
+    <div class="relative flex flex-col justify-between shadow-xl rounded-2xl bg-white p-[20px]">
+        <a routerLink="/" class="cursor-pointer absolute top-2 right-2 bg-red-500 py-2 px-4 rounded-full text-white font-bold">X</a>
+        <h1 class="text-center text-[#111111] text-[55px] font-bold">{{ product.title }}</h1>
+        <img [src]="product.thumbnail" alt="" loading="eager" class="max-w-[300px] mx-auto">
+        <p class="font-[300] text-[16px] italic text-center mb-[20px]">{{ product.description }}</p>
+        <p><b>Price:</b> £{{ product.price }}</p>
+        <p><b>Code:</b> {{ product.sku }}</p>
+        <p><b>Category:</b> {{ product.category }}</p>
+        <p><b>Dimensions:</b> Height -  {{ product.dimensions.height }}, Width - {{ product.dimensions.width }}, Depth - {{ product.dimensions.depth }} </p>
+        <button class="cursor-pointer bg-green-500 rounded-lg text-white py-4 mt-20" (click)="addBasket(product)">Add to basket</button>
+    </div>
+</section>

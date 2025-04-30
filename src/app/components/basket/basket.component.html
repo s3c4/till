@@ -1,0 +1,23 @@
+<section class="container mx-auto px-4 md:px-16">
+    <h1 class="text-center text-[#111111] text-[55px] font-bold mb-[20px]">Basket Products</h1>
+    <div *ngIf="basket.length > 0">
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[25px]">
+            <li *ngFor="let b of basket; let i = index" class="relative flex flex-col justify-between shadow-xl rounded-2xl bg-white p-[20px]">
+                <div>
+                    <img class="bg-[#f2f2f2] rounded-2xl mb-[20px] mx-auto" [src]='b.product.thumbnail' alt="" loading="lazy">
+                    <p class="mb-[20px] text-center font-bold uppercase">{{ b.product.title }} </p>
+                    <p class="overflow-hidden text-ellipsis line-clamp-3 font-[300] text-[16px] italic text-center mb-[20px]">{{ b.product.description }}</p>
+                </div>
+                <div class="flex flex-row justify-around items-center">
+                    <button class="cursor-pointer border-1 rounded-full px-4 py-2" (click)="decrementProduct(i, b.number)">-</button>
+                    <p>{{ b.number }}</p>
+                    <button class="cursor-pointer border-1 rounded-full px-4 py-2" (click)="incrementProduct(i)">+</button>
+                </div>
+                <div class="absolute -top-2 -right-2 cursor-pointer bg-red-500 text-white border-1 rounded-full px-2" (click)="deleteProduct(i)">x</div>
+            </li>
+        </ul>
+        <button class="cursor-pointer bg-green-500 rounded-xl py-2 w-full text-white font-bold my-8" (click)="finishPayment()">Finish Payment</button>
+    </div>
+    <p *ngIf="basket.length === 0">Basket is empty!</p>
+</section>
+

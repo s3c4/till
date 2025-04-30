@@ -1,0 +1,22 @@
+<section class="container mx-auto px-4 md:px-16">
+    <h1 class="text-center text-[#111111] text-[55px] font-bold">Our Products</h1>
+    <div *ngIf="loading">Loading products...</div>
+    <div *ngIf="error">Error: {{ error }}</div>
+    <form [formGroup]="searchForm" class="flex flex-col md:flex-row gap-4 my-8">
+        <input class="bg-white min-w-[300px] px-4 py-2 text-[#111111] rounded-md" formControlName="string" type="text" placeholder="Search by name or barcode">
+        <select class="bg-white min-w-[300px] px-4 py-2 text-[#111111] rounded-md" formControlName="category">
+            <option value="">All Categories</option>
+            <option *ngFor="let category of categories" [ngValue]="category">{{ category }}</option>
+        </select>
+    </form>
+    <div *ngIf="!loading && !error && products.length > 0">
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[25px]">
+            <li *ngFor="let product of products" class="flex flex-col justify-between shadow-xl rounded-2xl bg-white p-[20px]">
+                <app-product-card [product]="product"></app-product-card>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!loading && !error && products?.length === 0">
+        <p>No products available.</p>
+    </div>
+</section>

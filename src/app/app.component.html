@@ -1,0 +1,10 @@
+<nav class="container mx-auto py-4 px-4 md:px-16">
+  <div class="flex flex-row justify-between">
+    <a routerLink="/" routerLinkActive="activebutton"
+    class="text-[#212121] text-4xl">Till</a>
+    <a routerLink="/basket" routerLinkActive="activebutton"
+    class="text-[#212121] text-xl">Basket ({{ basketNumbers }})</a>
+  </div>
+</nav>
+<router-outlet />
+<app-toast></app-toast>
